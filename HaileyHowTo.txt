@@ -1,0 +1,10 @@
+Setup venv
+pip install -r requirements.txt
+python scripts/convert_checkpoint.py --output_dir checkpoints/lit-llama --ckpt_dir checkpoints/llama --tokenizer_path checkpoints/llama/tokenizer.model --model_size 65B
+python scripts/databrick_prepare_json.py
+python databrick_finetune_lora.py
+
+
+
+
+started run 4/14 3:24pm
