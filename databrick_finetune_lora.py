@@ -31,7 +31,7 @@ learning_rate = 3e-4
 batch_size = 128
 micro_batch_size = 4
 gradient_accumulation_steps = batch_size // micro_batch_size
-max_iters = 50000 * 3 // micro_batch_size
+max_iters = 30000 * 3 // micro_batch_size
 weight_decay = 0.0
 block_size = 256
 lora_r = 8
@@ -41,7 +41,7 @@ warmup_steps = 100
 
 
 def main():
-    fabric = L.Fabric(accelerator="auto", devices=1, precision="bf16-mixed")
+    fabric = L.Fabric(accelerator="cuda", devices=1, precision="bf16-mixed")
     fabric.launch()
     fabric.seed_everything(1337 + fabric.global_rank)
 
